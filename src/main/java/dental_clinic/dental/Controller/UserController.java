@@ -28,9 +28,14 @@ public class UserController {
         ResponseEntity<String> result = userService.login(user_name, password);
         return result;
     }
-
-    @GetMapping("/get")
-    public ResponseEntity<User> getUser(@RequestBody User userId) {
-        return ResponseEntity.ok(null);
-    }
+//    @GetMapping("register")
+//    public ResponseEntity<String> register(){
+//
+//        return  ResponseEntity.ok("hello");
+//    }
+//
+//    @GetMapping("/get")
+//    public ResponseEntity<String> getUser(@RequestAttribute("userId")String userId   ) {
+//        return ResponseEntity.ok(userId);
+//    }
 }

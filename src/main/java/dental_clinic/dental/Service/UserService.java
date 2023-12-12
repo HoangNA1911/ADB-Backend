@@ -18,13 +18,13 @@ public class UserService {
     private final UserRepository userRepository;
     private final TokenService tokenService;
 
-    private final AuthenticationManager authenticationManager;
+   // private final AuthenticationManager authenticationManager;
 
     @Autowired
-    UserService(UserRepository userRepository, TokenService tokenService, AuthenticationManager authenticationManager) {
+    UserService(UserRepository userRepository, TokenService tokenService/*, AuthenticationManager authenticationManager*/) {
         this.userRepository = userRepository;
         this.tokenService = tokenService;
-        this.authenticationManager = authenticationManager;
+        //this.authenticationManager = authenticationManager;
     }
 
     public User getUser(int userId) {
@@ -41,16 +41,10 @@ public class UserService {
             if(user.isEmpty()){
                 throw new BadCredentialsException("login not successful");
             }
-            Authentication authentication =
-                    authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user_name,password));
             String token = tokenService.createToken(user.get().getUserID());
             return ResponseEntity.ok(token);
-
         }catch (BadCredentialsException e){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }catch (Exception e){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
-
 }
