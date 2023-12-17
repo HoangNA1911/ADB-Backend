@@ -22,7 +22,7 @@ import java.sql.Time;
 public class Appointment {
     @Id
     @Column(name = "APPOINTMENT_ID")
-    private int appointment_id;
+    private int AppointmentId;
     @Column(name = "A_DENTIST_ID")
     private int dentist_id;
     @Column(name = "A_PATIENT_ID")
@@ -41,7 +41,7 @@ public class Appointment {
 
 
     public int getAppointment_id() {
-        return appointment_id;
+        return AppointmentId;
     }
 
     public int getDentist_id() {
@@ -73,7 +73,7 @@ public class Appointment {
     }
 
     public void setAppointment_id(int appointment_id) {
-        this.appointment_id = appointment_id;
+        this.AppointmentId = appointment_id;
     }
 
     public void setDentist_id(int dentist_id) {

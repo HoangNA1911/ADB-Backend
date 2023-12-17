@@ -1,15 +1,14 @@
 package dental_clinic.dental.Controller;
 
-import dental_clinic.dental.Repository.RequestRepository;
-import dental_clinic.dental.model.Request;
+import dental_clinic.dental.Repository.AppointmentRepository;
+import dental_clinic.dental.model.Appointment;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 
 
-@Controller
+@RestController
 //http://localhost:8080/request
 @RequestMapping("/appointments")
 /*
@@ -18,27 +17,14 @@ import org.springframework.web.bind.annotation.*;
 */
 public class AppointmentController {
     @Autowired // sẽ tạo mới nếu không thấy object nào, còn neesu có rô thì tái sử dụng
-    private RequestRepository requestRepository;
+    private AppointmentRepository appointmentRepository;
     //https://localhost:8080/request
-    @RequestMapping(value ="", method = RequestMethod.GET)
-    public String getAppointmentByDate(ModelMap modelMap) {
+    @RequestMapping(value ="/getAppointmentById/{AppointmentId}", method = RequestMethod.GET)
+    public Optional<Appointment> getAppointmentById(@PathVariable int AppointmentId) {
         // Kiểu dữ liệu gửi lên jsp là: ModelMap
         // return của teen file jsp
-        Iterable<Request> requests = requestRepository.findAll();
-        requests.forEach((p) -> {
-            System.out.println(p.getRequest_id());
-        });
-        modelMap.addAttribute("requests", requests);
+        Optional<Appointment> appointments = appointmentRepository.findById(AppointmentId);
+        return appointments;
 
-
-
-
-        return "AppointmentDate";
     }
-
-
-
-
-
-
 }
