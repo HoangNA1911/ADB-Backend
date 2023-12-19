@@ -8,12 +8,11 @@ import java.util.Date;
 
 public class PatientInfo {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int patient_ID;
-    @Column(columnDefinition = "NVARCHAR(255) COLLATE utf8mb4_unicode_ci")
+    @Column(columnDefinition = "NVARCHAR(255) COLLATE utf8mb3_general_ci")
     private String pp_Name;
     private String pp_Gender;
     private String pp_Oral_Health;

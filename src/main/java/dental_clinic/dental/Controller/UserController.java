@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package dental_clinic.dental.Controller;
 
 import dental_clinic.dental.Entity.Users;
