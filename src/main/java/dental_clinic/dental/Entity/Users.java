@@ -9,7 +9,7 @@ import lombok.*;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
@@ -18,15 +18,15 @@ public class User {
     @Getter
     private String password;
     @Getter
-    private String role;
+    private String roleUser;
 
-    public User() {
+    public Users() {
     }
 
-    public User(String userName, String password, String role) {
+    public Users(String userName, String password, String roleUser) {
         this.userName = userName;
         this.password = password;
-        this.role = role;
+        this.roleUser = roleUser;
     }
 
     public int getUserID() {
@@ -54,10 +54,10 @@ public class User {
     }
 
     public String getRole() {
-        return role;
+        return roleUser;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRole(String roleUser) {
+        this.roleUser = roleUser;
     }
 }
