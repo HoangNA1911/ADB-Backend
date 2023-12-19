@@ -20,8 +20,8 @@ public class Employee {
     @Id
     @Column(name = "EMPLOYEE_ID")
     private  String EmployeeID;
-    @Column(name = "USER_ID")
-    private int UserID;
+
+    private int userid;
     @Column(name = "EMP_NAME")
     private String EmpName;
     @Column(name = "GENDER")
@@ -42,7 +42,7 @@ public class Employee {
     }
 
     public int getUserID() {
-        return UserID;
+        return userid;
     }
 
     public String getEmpName() {
@@ -66,7 +66,7 @@ public class Employee {
     }
 
     public void setUserID(int userID) {
-        UserID = userID;
+        userID = userID;
     }
 
     public void setEmpName(String empName) {

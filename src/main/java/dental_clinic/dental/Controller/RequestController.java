@@ -26,10 +26,4 @@ public class RequestController {
         return requestRepository.findAll();
    }
 
-
-
-
-
-
-
 }

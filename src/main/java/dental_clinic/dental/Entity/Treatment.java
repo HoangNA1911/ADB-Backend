@@ -6,9 +6,9 @@ import jakarta.persistence.Id;
 @Entity
 public class Treatment {
     @Id
-    private int Treatment_id;
+    private String Treatment_id;
     private int Parent_treatment_id;
-    private String Treatment_plan;
+    private String Treatment_name;
     private int TM_cost;
 
 }

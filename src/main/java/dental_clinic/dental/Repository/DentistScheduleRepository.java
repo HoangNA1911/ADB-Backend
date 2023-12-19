@@ -15,6 +15,6 @@ import java.util.List;
 
 public interface DentistScheduleRepository extends JpaRepository<DentistSchedule,Long> {
     @Query(value="call view_dentist_free(:date_chosen, :time_chosen);",nativeQuery = true)
-    List<Object[]> findDentistAvailable(@Param("date_chosen") Date date_chosen, @Param("time_chosen") Time time_chosen);
+    List<Integer> findDentistAvailable(@Param("date_chosen") Date date_chosen, @Param("time_chosen") Time time_chosen);
 
 }
