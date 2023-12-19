@@ -12,7 +12,7 @@ import java.util.Date;
 public class Employee_info {
     @Id
     private String Employee_id ;
-    private int User_Ii;
+    private int User_id;
     private String Emp_name;
     private String Gender;
     private Date Date_of_birth;

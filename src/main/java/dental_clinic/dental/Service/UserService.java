@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package dental_clinic.dental.Service;
 
 import dental_clinic.dental.Entity.Users;
