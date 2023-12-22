@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface TreatmentRepository extends JpaRepository<Treatment,Long> {
     @Query(value ="call view_treatment(:parent_treatment_id);",nativeQuery = true )
-    List findTreatmentByParent(@Param("parent_treatment_id") Integer parent_treatment_id);
+    List<Object[]> findTreatmentByParent(@Param("parent_treatment_id") Integer parent_treatment_id);
 }

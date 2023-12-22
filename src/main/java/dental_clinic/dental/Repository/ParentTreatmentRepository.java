@@ -9,5 +9,5 @@ import java.util.Optional;
 
 public interface ParentTreatmentRepository extends JpaRepository<ParentTreatment,Long> {
     @Query(value = "call view_parent_treatment()",nativeQuery = true)
-    List viewparenttreatment();
+    List<Object[]> viewparenttreatment();
 }

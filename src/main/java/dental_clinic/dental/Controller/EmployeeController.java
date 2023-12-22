@@ -58,6 +58,4 @@ public class EmployeeController {
     public List<Object[]> filterEmpByGender(@PathVariable String gender) {
         return employeeRepository.filterEmpByGender(gender);
     }
-
-
 }

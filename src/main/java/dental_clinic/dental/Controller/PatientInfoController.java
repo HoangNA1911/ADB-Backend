@@ -39,14 +39,11 @@ public class PatientInfoController {
         }
         return patientInfoRepository.findAll(pageable);
     }
-
     @PostMapping("/add")
     public ResponseEntity<String> addpatient(@RequestBody PatientInfo patientInfo) {
         patientInfoRepository.save(patientInfo);
         return ResponseEntity.ok("add patient info success");
     }
-//    @GetMapping("search")
-//    public
 
     private static boolean tryParseInt(String value) {
         try {
