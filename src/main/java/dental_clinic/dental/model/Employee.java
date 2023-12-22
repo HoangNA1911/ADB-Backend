@@ -1,14 +1,30 @@
 package dental_clinic.dental.model;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.io.File;
+import java.text.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
+
+
 
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+//import org.apache.tomcat.util.json.ParseException;
 
-import java.util.Date;
-import java.sql.Time;
+import java.text.SimpleDateFormat;
+
+//import java.sql.Date;
+import java.util.Locale;
+import java.util.Map;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -19,6 +35,7 @@ import java.sql.Time;
 public class Employee {
     @Id
     @Column(name = "EMPLOYEE_ID")
+
     private  String EmployeeID;
     @Column(name = "USER_ID")
     private int UserID;
@@ -30,9 +47,6 @@ public class Employee {
     private Date DOB;
     @Column(name = "ADDRESS")
     private String Address;
-
-
-
 
 
 

@@ -24,6 +24,7 @@ import java.sql.Time;
 public class Request {
     @Id
     @Column(name = "REQUEST_ID")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private  int request_id;
     @Column(name = "RQ_PATIENT_ID")
     private  int patient_id;
@@ -37,7 +38,7 @@ public class Request {
     @Column(name = "RQ_PHONE")
     private  String phoneNumber;
     @Column(name = "RQ_STATUS")
-    private  String statusRequest;
+    private  String statusRequest = "pending";
 
 
 
@@ -84,14 +85,7 @@ public class Request {
         return timeRequest;
     }
 
-    public Request(int request_id, int patient_id, Date dateRequest, String noteRequest, String phoneNumber, String statusRequest) {
-        this.request_id = request_id;
-        this.patient_id = patient_id;
-        this.dateRequest = dateRequest;
-        this.noteRequest = noteRequest;
-        this.phoneNumber = phoneNumber;
-        this.statusRequest = statusRequest;
-    }
+
 
     public void setRequest_id(int request_id) {
         this.request_id = request_id;
