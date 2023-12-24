@@ -12,4 +12,7 @@ public interface PatientInfoRepository extends JpaRepository<PatientInfo,Long> {
     Page<PatientInfo> findByIdOrNameContaining(@Param("id") int id, @Param("name") String name, Pageable pageable);
     @Query("SELECT p FROM PatientInfo p WHERE p.pp_Name LIKE %:name%")
     Page<PatientInfo> findByNameContaining(@Param("name") String search, Pageable pageable);
+
+    @Query("SELECT p FROM  PatientInfo p Where p.pp_Email =:email")
+    PatientInfo findByPp_Email(@Param("email")String Pp_Email);
 }
