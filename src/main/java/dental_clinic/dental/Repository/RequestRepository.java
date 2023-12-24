@@ -26,6 +26,10 @@ public interface RequestRepository extends CrudRepository<Request, Integer> {
     Iterable<Request> filterByShift(
             @Param("shift") String shift
     );
+    @Query(value = "call filter_request_status(:status);", nativeQuery = true)
+    Iterable<Request> filterByStatus(
+            @Param("status") String status
+    );
     @Query(value = "call findRequest(:phone);", nativeQuery = true)
     int findPatient(
             @Param("phone") int phone

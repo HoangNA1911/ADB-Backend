@@ -55,6 +55,13 @@ public class RequestController {
         return result;
 
     }
+    @RequestMapping(value ="/filterByStatus/{status}", method = RequestMethod.GET)
+    public Iterable<Request> filterByStatus(@PathVariable String status) {
+
+        Iterable<Request> result = requestRepository.filterByStatus(status);
+        return result;
+
+    }
     @RequestMapping(value ="/deleteRequest/{requestId}", method = RequestMethod.POST)
     public void deleteRQ(@PathVariable int requestId) {
 
