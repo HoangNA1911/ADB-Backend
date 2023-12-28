@@ -110,7 +110,11 @@ public class AppointmentController {
 
 
         String rq_id = appointment.get("request_id");
-        int request_id = Integer.parseInt(rq_id);
+        int request_id = 0;
+        if (rq_id != null){
+            request_id = Integer.parseInt(rq_id);
+        }
+
         Date date_chosen = Date.valueOf(appointment.get("date_chosen"));
 
         Time time_chosen = Time.valueOf(appointment.get("time_chosen"));
@@ -118,7 +122,7 @@ public class AppointmentController {
         int patient_id =Integer.parseInt(patientId);
         String dentistId =  appointment.get("dentist_id");
         int dentist_id =Integer.parseInt(dentistId);
-
+    
         String appointmentId = appointmentRepository.createAppointment(request_id,date_chosen,time_chosen,patient_id,dentist_id);
         return appointmentId;
 
@@ -131,6 +135,36 @@ public class AppointmentController {
         Optional<Object> ABC =  appointmentRepository.viewAppointmentDetail(appointmentID);
 
         return ABC;
+    }
+    @RequestMapping(value ="/deleteID/{appointmentID}", method = RequestMethod.POST)
+    public String  deleteAppointmentByID(@PathVariable int appointmentID) {
+
+
+
+        appointmentRepository.deleteById(appointmentID);
+
+        return "success";
+    }
+    @RequestMapping(value ="/edit/{appointmentID}", method = RequestMethod.POST)
+    public String  editAppointmentByID(@PathVariable int appointmentID, @RequestBody Map<String, String> appointment) {
+
+        String dentist_o = appointment.get("dentist_old");
+        int dentist_old = Integer.parseInt(dentist_o);
+        Date date_old = Date.valueOf(appointment.get("date_old"));
+
+        Time time_old = Time.valueOf(appointment.get("time_old"));
+
+        Date date_new= Date.valueOf(appointment.get("date_new"));
+
+        Time time_new = Time.valueOf(appointment.get("time_new"));
+       String dentist_n =  appointment.get("dentist_new");
+        int dentist_new =Integer.parseInt(dentist_n);
+
+
+
+       String result =  appointmentRepository.editAppointmentDetail(appointmentID,date_old,time_old,dentist_old,date_new,time_new,dentist_new);
+
+        return result;
     }
 
 }

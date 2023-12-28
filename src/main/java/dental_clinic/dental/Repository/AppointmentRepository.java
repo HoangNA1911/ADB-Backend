@@ -37,6 +37,17 @@ public interface AppointmentRepository extends CrudRepository<Appointment, Integ
             @Param("appointment_id") int appointment_id
     );
 
+    @Query(value = "call  edit_appointment(:appointment_id, :date_old, :time_old, :dentist_id_old, :date_new, :time_new, :dentist_id_new);", nativeQuery = true)
+    String editAppointmentDetail(
+            @Param("appointment_id") int appointment_id,
+            @Param("date_old") Date date_old,
+            @Param("time_old") Time time_old,
+            @Param("dentist_id_old") int dentist_id_old,
+            @Param("date_new") Date date_new,
+            @Param("time_new") Time time_new,
+            @Param("dentist_id_new") int dentist_id_new
+    );
+
 
 
 
