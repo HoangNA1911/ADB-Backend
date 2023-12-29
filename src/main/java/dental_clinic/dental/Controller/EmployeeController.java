@@ -167,7 +167,6 @@ public class EmployeeController {
         employeeRepository.save(updateE);
         return updateE;
     }
-<<<<<<< HEAD
 
 
     @RequestMapping(value ="/searchEmp/{searchTerm}", method = RequestMethod.GET)
@@ -200,6 +199,4 @@ public class EmployeeController {
 
 
 
-=======
->>>>>>> origin/feature/request
 }

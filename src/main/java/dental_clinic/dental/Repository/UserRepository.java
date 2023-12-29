@@ -8,9 +8,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByUserNameAndPassword(String userName, String password);
+public interface UserRepository extends JpaRepository<Users, Long> {
+    Optional<Users> findByUserNameAndPassword(String userName, String password);
 
-    User findByUserName(String userName);
-
+    Users findByUserName(String userName);
 }

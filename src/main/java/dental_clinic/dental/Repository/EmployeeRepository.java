@@ -3,18 +3,12 @@ package dental_clinic.dental.Repository;
 import dental_clinic.dental.model.Employee;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-<<<<<<< HEAD
 import org.springframework.data.jpa.repository.Modifying;
-=======
->>>>>>> origin/feature/request
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-<<<<<<< HEAD
 import org.springframework.transaction.annotation.Transactional;
-=======
 import org.springframework.security.core.parameters.P;
->>>>>>> origin/feature/request
 
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -56,13 +50,10 @@ public interface EmployeeRepository extends CrudRepository<Employee, String> {
     );
 
 
-<<<<<<< HEAD
-=======
     @Query(value ="call filter_emp_gender(:gender);", nativeQuery = true)
     List<Object[]> filterEmpByGender(@Param("gender") String gender);
 
     @Query("select e FROM Employee  e WHERE e.userid in :userID")
     Page<Employee> findByUerid(@Param("userID") List<Integer>userID, Pageable pageable);
 
->>>>>>> origin/feature/request
 }
